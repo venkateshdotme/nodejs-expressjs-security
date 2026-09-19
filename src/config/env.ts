@@ -9,6 +9,7 @@ const envSchema = z.object({
   PORT: z.coerce.number().int().positive().default(5000),
   MONGO_URI: z.string().min(1),
   CLIENT_ORIGIN: z.string(),
+  ACCESS_TOKEN_SECRET: z.string().min(32),
 });
 
 const result = envSchema.safeParse(process.env);
